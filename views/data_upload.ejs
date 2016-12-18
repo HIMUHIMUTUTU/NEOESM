@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+	</head>
+	<body>
+		<%- include menu %>  
+		<h2>データアップロード</h2>
+		<form action="upload" method="POST" enctype="multipart/form-data">
+			<input type="file" name="upName">
+			<input type="submit">
+			<p>※まだ動きません。</p>
+		</form>
+	</body>
+</html>

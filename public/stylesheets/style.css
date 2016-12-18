@@ -1,0 +1,37 @@
+body {
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #00B7FF;
+}
+
+ul.menu {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+ul.menu li {
+	float: left;
+	list-style-type: none;
+	border-right: 20px solid #ffffff;
+}
+
+ul.report_menu {
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+ul.report_menu li {
+	list-style-type: none;
+}
+
+div.report_menu {
+	border: 1px solid #ff9900;
+	width: 150px;
+}
+
