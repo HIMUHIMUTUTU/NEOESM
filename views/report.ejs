@@ -2,37 +2,54 @@
 <html>
 	<head>
 		<title>NEOESM</title>
+		<script type="text/javascript" src="/javascript/report.js"></script>
 		<link rel='stylesheet' href='/stylesheets/style.css' />
 	</head>
 	<body>
 		<%- include menu %>  
 		<div class="report_menu">
-		<p>人ごと</p>
-		<ul class="report_menu">
-			<li><a href="">himuh</a></li>
-			<li><a href="">k_taka</a></li>
-			<li><a href="">h.mura</a></li>
-			<li><a href="">t.kasu</a></li>
-			<li><a href="">vevev</a></li>
-			<li><a href="">ktsun</a></li>
-		</ul>
+			<p>人ごと</p>
+			<ul class="report_menu">
+				<% for(var sui=0; sui<setting.user.length; sui++) { %>
+				<li><a href="report?user=<%= setting.user[sui] %>"><%= setting.user[sui] %></a></li>
+				<% } %>
+			</ul>
 
-		<ul class="report_menu">
-			<li><a href="">チーム全体</a></li>
-		</ul>
+			<ul class="report_menu">
+				<li><a href="">チーム全体</a></li>
+			</ul>
 
-		<p>場所ごと</p>
-		<ul class="report_menu">
-			<li><a href="">個別席</a></li>
-			<li><a href="">オープンスペース</a></li>
-			<li><a href="">会議室</a></li>
-			<li><a href="">社外</a></li>
-			<li><a href="">その他</a></li>
-		</ul>
+			<p>場所ごと</p>
+			<ul class="report_menu">
+				<% for(var spi=0; spi<setting.place.length; spi++) { %>
+				<li><a href="report?place=<%= setting.place[spi] %>"><%= setting.place[spi] %></a></li>
+				<% } %>
+			</ul>
 
-		<ul class="report_menu">
-			<li><a href="">オフィス全体</a></li>
-		</ul>
+			<ul class="report_menu">
+				<li><a href="report?sum=place_all">オフィス全体</a></li>
+			</ul>
+		</div>
+		<div class="report">
+			<h3><%= user %> <%= place %> <% if(sum == "place_all"){ %>場所全体<% } %>のレポート(<a href="">印刷</a>)</h3> 
+			<% if(user != null && place == null){ %>
+			<h4>基本情報</h4>
+			<p>回答数: </p>
+			<h4>場所の利用状況</h4>
+			<img src="/report_data/place_<%= user %>.png">
+			<h4>各タスクの割合</h4>
+			<img src="/report_data/task_<%= user %>.png">
+			<h4>時刻ごとのノリノリ度</h4>
+			<img src="/report_data/nori_<%= user %>.png" width="700px">
+			<h4>各場所ごとのノリノリ度</h4>
+			<img src="/report_data/place_nori_<%= user %>.png" width="700px">
+			<% } %>
+			<% if(sum == "place_all"){ %>
+			<h4>場所の利用状況</h4>
+			<img src="/report_data/place_total.png">
+			<h4>各場所ごとのノリノリ度</h4>
+			<img src="/report_data/place_nori_average.png" width="500px">
+			<% } %>
 		</div>
 	</body>
 </html>

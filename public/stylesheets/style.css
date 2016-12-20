@@ -31,7 +31,12 @@ ul.report_menu li {
 }
 
 div.report_menu {
-	border: 1px solid #ff9900;
+	float:left;
+	border: 1px solid #eeeeee;
 	width: 150px;
 }
 
+div.report {
+	float:left;
+	border: 1px solid #eeeeee;
+}
