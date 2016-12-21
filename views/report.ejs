@@ -31,7 +31,9 @@
 			</ul>
 		</div>
 		<div class="report">
+			<% if(user != null || place != null || sum != null){ %>
 			<h3><%= user %> <%= place %> <% if(sum == "place_all"){ %>場所全体<% } %>のレポート(<a href="">印刷</a>)</h3> 
+			<% } %>
 			<% if(user != null && place == null){ %>
 			<h4>基本情報</h4>
 			<p>回答数: </p>
